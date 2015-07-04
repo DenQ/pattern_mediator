@@ -2,4 +2,4 @@ class IMember
 
   setMediator:(mediator) -> throw false
 
-  onMessage:(member, msg) -> throw false
+  notify:(sender, msg) -> throw false
