@@ -72,10 +72,11 @@
 
     MemberA.prototype.setMediator = function(mediator) {
       this.__mediator = mediator;
+      this.__mediator.send(this, 'add A');
     };
 
     MemberA.prototype.notify = function(sender, msg) {
-      return console.log(sender, msg);
+      console.log('notify A', msg);
     };
 
     return MemberA;
@@ -93,10 +94,11 @@
 
     MemberB.prototype.setMediator = function(mediator) {
       this.__mediator = mediator;
+      this.__mediator.send(this, 'add B');
     };
 
     MemberB.prototype.notify = function(sender, msg) {
-      return console.log(sender, msg);
+      console.log('notify B', msg);
     };
 
     return MemberB;
@@ -114,10 +116,11 @@
 
     MemberC.prototype.setMediator = function(mediator) {
       this.__mediator = mediator;
+      this.__mediator.send(this, 'add C');
     };
 
     MemberC.prototype.notify = function(sender, msg) {
-      return console.log(sender, msg);
+      console.log('notify C', msg);
     };
 
     return MemberC;
@@ -136,5 +139,11 @@
   memberC = new MemberC();
 
   mediator = new Mediator();
+
+  mediator.add(memberA);
+
+  mediator.add(memberB);
+
+  mediator.add(memberC);
 
 }).call(this);
