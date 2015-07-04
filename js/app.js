@@ -51,7 +51,7 @@
     };
 
     AbMember.prototype.notify = function(sender, msg) {
-      console.log("notify " + this.__name, msg);
+      console.log("notify: " + sender.__name + " -> " + this.__name + ".", 'Msg: ' + msg);
     };
 
     AbMember.prototype.send = function(msg) {
@@ -152,7 +152,5 @@
   mediator.add(memberB);
 
   mediator.add(memberC);
-
-  memberC.send('Hello');
 
 }).call(this);

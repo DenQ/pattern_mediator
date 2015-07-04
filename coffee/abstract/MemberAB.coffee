@@ -9,7 +9,7 @@ class AbMember extends IMember
     return
 
   notify:(sender, msg) ->
-    console.log "notify #{@__name}", msg
+    console.log "notify: #{sender.__name} -> #{@__name}.", 'Msg: ' + msg
     return
 
   send:(msg)->
