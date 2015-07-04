@@ -72,11 +72,15 @@
 
     MemberA.prototype.setMediator = function(mediator) {
       this.__mediator = mediator;
-      this.__mediator.send(this, 'add A');
+      this.send('add A');
     };
 
     MemberA.prototype.notify = function(sender, msg) {
       console.log('notify A', msg);
+    };
+
+    MemberA.prototype.send = function(msg) {
+      this.__mediator.send(this, msg);
     };
 
     return MemberA;
@@ -94,11 +98,15 @@
 
     MemberB.prototype.setMediator = function(mediator) {
       this.__mediator = mediator;
-      this.__mediator.send(this, 'add B');
+      this.send('add B');
     };
 
     MemberB.prototype.notify = function(sender, msg) {
       console.log('notify B', msg);
+    };
+
+    MemberB.prototype.send = function(msg) {
+      this.__mediator.send(this, msg);
     };
 
     return MemberB;
@@ -116,11 +124,15 @@
 
     MemberC.prototype.setMediator = function(mediator) {
       this.__mediator = mediator;
-      this.__mediator.send(this, 'add C');
+      this.send('add C');
     };
 
     MemberC.prototype.notify = function(sender, msg) {
       console.log('notify C', msg);
+    };
+
+    MemberC.prototype.send = function(msg) {
+      this.__mediator.send(this, msg);
     };
 
     return MemberC;
@@ -145,5 +157,7 @@
   mediator.add(memberB);
 
   mediator.add(memberC);
+
+  memberC.send;
 
 }).call(this);

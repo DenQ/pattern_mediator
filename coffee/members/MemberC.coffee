@@ -5,10 +5,13 @@ class MemberC extends IMember
 
   setMediator:(mediator) ->
     @__mediator = mediator
-    @__mediator.send @, 'add C'
+    @send 'add C'
     return
-
 
   notify:(sender, msg) ->
     console.log 'notify C', msg
+    return
+
+  send:(msg)->
+    @__mediator.send @, msg
     return

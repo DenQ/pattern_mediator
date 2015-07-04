@@ -2,13 +2,15 @@ class MemberA extends IMember
 
   __mediator: null
 
-
   setMediator:(mediator) ->
     @__mediator = mediator
-    @__mediator.send @, 'add A'
+    @send 'add A'
     return
-
 
   notify:(sender, msg) ->
     console.log 'notify A', msg
+    return
+
+  send:(msg)->
+    @__mediator.send @, msg
     return
