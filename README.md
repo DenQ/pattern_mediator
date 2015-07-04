@@ -11,7 +11,7 @@ For run:
 ```
 node js/app.js
 ```
-Result for BuilderChocolateMilk:
+Result:
 ```
 notify: MemberA -> MemberA. msg: add MemberA
 notify: MemberB -> MemberA. msg: add MemberB
