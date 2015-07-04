@@ -5,7 +5,9 @@
  */
 
 (function() {
-  var IMediator, IMember;
+  var IMediator, IMember, Mediator,
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
 
   IMediator = (function() {
     function IMediator() {}
@@ -36,5 +38,33 @@
     return IMember;
 
   })();
+
+  Mediator = (function(superClass) {
+    extend(Mediator, superClass);
+
+    function Mediator() {
+      return Mediator.__super__.constructor.apply(this, arguments);
+    }
+
+    Mediator.prototype.__members = [];
+
+    Mediator.prototype.add = function(mediator) {
+      this.__members.push(mediator);
+    };
+
+    Mediator.prototype.send = function(sender, msg) {
+      var i, len, member, ref, results;
+      ref = this.__members;
+      results = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        member = ref[i];
+        results.push(member.notify(sender, msg));
+      }
+      return results;
+    };
+
+    return Mediator;
+
+  })(IMediator);
 
 }).call(this);
