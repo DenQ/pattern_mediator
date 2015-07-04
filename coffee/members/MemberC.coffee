@@ -1,17 +1,12 @@
-class MemberC extends IMember
+class MemberC extends AbMember
 
   __mediator: null
+  __name: 'MemberC'
 
-
-  setMediator:(mediator) ->
-    @__mediator = mediator
-    @send 'add C'
-    return
-
-  notify:(sender, msg) ->
-    console.log 'notify C', msg
-    return
-
-  send:(msg)->
-    @__mediator.send @, msg
-    return
+#  setMediator:(mediator) ->
+#    super mediator
+#    return
+#
+#  notify:(sender, msg) ->
+#    super sender, msg
+#    return

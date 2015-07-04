@@ -11,4 +11,4 @@ mediator.add memberA
 mediator.add memberB
 mediator.add memberC
 
-memberC.send
+memberC.send 'Hello'
