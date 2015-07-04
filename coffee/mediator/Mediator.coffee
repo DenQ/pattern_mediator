@@ -1,8 +1,9 @@
 class Mediator extends IMediator
   __members: []
 
-  add:(mediator)->
-    @__members.push mediator
+  add:(member)->
+    @__members.push member
+    member.setMediator @
     return
 
 
