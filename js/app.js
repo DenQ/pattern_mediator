@@ -5,6 +5,36 @@
  */
 
 (function() {
+  var IMediator, IMember;
 
+  IMediator = (function() {
+    function IMediator() {}
+
+    IMediator.prototype.add = function(mediator) {
+      throw false;
+    };
+
+    IMediator.prototype.send = function(msg) {
+      throw false;
+    };
+
+    return IMediator;
+
+  })();
+
+  IMember = (function() {
+    function IMember() {}
+
+    IMember.prototype.setMediator = function(mediator) {
+      throw false;
+    };
+
+    IMember.prototype.onMessage = function(member, msg) {
+      throw false;
+    };
+
+    return IMember;
+
+  })();
 
 }).call(this);
